@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>BOOK RECOMMENDATION SYSTEM</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    </head>
+
+    <style>
+        .text-white{
+            color:white
+        }
+    </style>
+
+<body style="background-color:black"> 
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand">Book Recommender</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/search">Search Book</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/recommend">Recommend</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row">
+           <b> <div class="col-md-12" style="margin-top:50px; font-family:Courier New">
+                <h1 class="text-white" style="font-size:40px">Top 20 Books</h1>
+            </div></b>
+
+            {% for i in range(book_name|length) %}
+            <div class="col-md-3" style="margin-top:50px">
+                <div class="card" style="background-color:black">
+                    <div class="card-body">
+                        <img src="{{ image[i] }}">
+                        <p class="text-white">{{ book_name[i] }}</p>
+                        <h6 class="text-white">{{ author[i] }}</h6>
+                        <h6 class="text-white">Votes - {{ votes[i] }}</h6>
+                        <h6 class="text-white">Rating - {{ rating[i] }}</h6>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</body>
+</html>
